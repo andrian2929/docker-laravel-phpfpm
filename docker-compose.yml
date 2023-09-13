@@ -7,7 +7,7 @@ services:
     image: laravel-image
     container_name: app-${APP_NAME}
     volumes:
-      - ./laravel:/var/www
+      - ./src:/var/www
       - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
     networks:
       - app-network
@@ -34,7 +34,7 @@ services:
     ports:
       - ${APP_PORT:-8080}:80
     volumes:
-      - ./laravel:/var/www
+      - ./src:/var/www
       - ./nginx/conf.d/:/etc/nginx/conf.d/
     networks:
       - app-network
