@@ -29,6 +29,9 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 RUN curl -sL https://deb.nodesource.com/setup_${NODE_VERSION}.x | bash -
 RUN apt-get install -y nodejs
 
+# Install Bun
+RUN curl -fsSL https://bun.sh/install | bash
+
 # Create system user
 RUN groupadd -g 1000 laraveluser && useradd -u 1000 -g laraveluser -m -s /bin/bash laraveluser
 
